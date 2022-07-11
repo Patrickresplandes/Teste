@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="import" content="width-device-width, initial-">
+    <title>Cadastro</title>
+    <link rel="stytesheet" href="style.css">
+
+    <style>
+        .tabela {
+            padding: 10px;
+            border: #000 solid 0px;
+            background-color: #f7f7f7b1;
+        }
+        
+        table {
+            border: 0px solid #000;
+            background-color: #808080;
+        }
+        
+        .style {
+            float: left;
+        }
+        
+        .button {
+            border-radius: 4px;
+            background-color: rgb(15, 223, 84);
+            border: none;
+            color: white;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 200px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        .button span {
+            position: relative;
+            transition: 0.5s;
+        }
+        
+        .button span:after {
+            content: "\00bb";
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+        
+        .button:hover span {
+            padding-right: 25px;
+        }
+        
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        
+        .content {
+            border: none;
+            text-align: center;
+        }
+        
+        .group {
+            position: relative;
+            margin-bottom: 45px;
+        }
+        
+        input {
+            font-size: 18px;
+            padding: 10px 10px 10px 5px;
+            display: block;
+            width: 300px;
+            border: none;
+            border-bottom: 1px solid #757575;
+        }
+        
+        .group {
+            position: relative;
+            margin-bottom: 45px;
+        }
+        
+        input {
+            font-size: 18px;
+            padding: 10px 10px 10px 5px;
+            display: block;
+            width: 300px;
+            border: none;
+            border-bottom: 1px solid #757575;
+        }
+        
+        input:focus {
+            outline: none;
+        }
+        
+        .labe {
+            color: #999;
+            font-size: 18px;
+            font-weight: normal;
+            position: absolute;
+            pointer-events: none;
+            left: 5px;
+            top: 10px;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+        
+        input:focus~.labe,
+        input:valid~.labe {
+            top: -20px;
+            font-size: 14px;
+            color: #2ff12f;
+        }
+        
+        .bar {
+            position: relative;
+            display: block;
+            width: 300px;
+        }
+        
+        .bar:before,
+        .bar:after {
+            content: '';
+            height: 2px;
+            width: 0;
+            bottom: 1px;
+            position: absolute;
+            background: #2ff12f;
+            transition: 0.2s ease all;
+            -moz-transition: 0.2s ease all;
+            -webkit-transition: 0.2s ease all;
+        }
+        
+        .bar:before {
+            left: 50%;
+        }
+        
+        .bar:after {
+            right: 50%;
+        }
+        
+        input:focus~.bar:before,
+        input:focus~.bar:after {
+            width: 50%;
+        }
+        
+        .highlight {
+            position: absolute;
+            height: 60%;
+            width: 100px;
+            top: 25%;
+            left: 0;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        
+        input:focus~.highlight {
+            -webkit-animation: inputHighlighter 0.3s ease;
+            -moz-animation: inputHighlighter 0.3s ease;
+            animation: inputHighlighter 0.3s ease;
+        }
+        
+        @-webkit-keyframes inputHighlighter {
+            from {
+                background: #2ff12f;
+            }
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+        
+        @-moz-keyframes inputHighlighter {
+            from {
+                background: #2ff12f;
+            }
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+        
+        @keyframes inputHighlighter {
+            from {
+                background: #2ff12f;
+            }
+            to {
+                width: 0;
+                background: transparent;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="select">
+        <label for="tipoPrestador ">
+            Tipo Prestador
+            <select name="tipoPrestador " id="tipoPrestador ">
+                <option value=" ">Selecione</option>
+                <option>{{ valor.DESCRICAO }}</option>
+               
+            </select>
+        </label>
+    </div>
+    <br>
+    <div class="select">
+        <label for="especialidades ">
+            Especialidades
+            <select name="especialidades " id="especialidades ">
+                <option value=" ">Selecione</option>
+              
+                <option>{{ valor.DESCRICAO }}</option>
+                
+            </select>
+        </label>
+    </div><br/><br/>
+    <br>
+
+
+    <div class="group " style="float:left ">
+        <input type="text " name="cidade " required>
+        <span class="highlight "></span>
+        <span class="bar "></span>
+        <label class="labe ">Cidade</label>
+    </div>
+
+    <div class="group " style="float:left ">
+        <input type="text " name="servico " required>
+        <span class="highlight "></span>
+        <span class="bar "></span>
+        <label class="labe ">Serviço</label>
+    </div>
+
+    <div class="group " style="float:left ">
+        <input type="text " name="prestador " required>
+        <span class="highlight "></span>
+        <span class="bar "></span>
+        <label class="labe ">Prestador</label>
+    </div>
+
+
+    <div class="content ">
+        <button type="submit " class="button "><span>Filtrar</span></button>
+    </div>
+    </form><br/><br/><br/>
+</body>
+
+</html>
